@@ -1,0 +1,45 @@
+:root {
+  --color-bg: #1a1a1d;
+  --color-surface: #26262a;
+  --color-surface-2: #2f2f34;
+  --color-text: #f5f5f7;
+  --color-text-dim: #9ea0a8;
+  --color-accent: #6c5ce7;
+  --color-bubble-out: #6c5ce7;
+  --color-bubble-in: #2f2f34;
+  font: 16px/1.45 -apple-system, 'Segoe UI', Roboto, system-ui, sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}

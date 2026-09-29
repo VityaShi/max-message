@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360">
+  <g fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- planet 1 -->
+    <circle cx="60" cy="70" r="14"/>
+    <ellipse cx="60" cy="70" rx="22" ry="6" transform="rotate(-18 60 70)"/>
+    <!-- planet 2 -->
+    <circle cx="240" cy="48" r="10"/>
+    <!-- rocket -->
+    <path d="M140 230 q4 -10 14 -14 q10 4 14 14 l-3 18 l-22 0 z"/>
+    <path d="M147 248 l-4 8 m14 -8 l4 8"/>
+    <circle cx="154" cy="234" r="2"/>
+    <!-- moon -->
+    <path d="M280 200 a12 12 0 1 0 8 14 a10 10 0 1 1 -8 -14 z"/>
+    <!-- star -->
+    <path d="M310 130 l3 8 l8 1 l-6 5 l2 8 l-7 -5 l-7 5 l2 -8 l-6 -5 l8 -1 z"/>
+    <!-- star 2 -->
+    <path d="M70 200 l2 6 l6 1 l-4 4 l1 6 l-5 -3 l-5 3 l1 -6 l-4 -4 l6 -1 z"/>
+    <!-- saturn -->
+    <circle cx="200" cy="290" r="11"/>
+    <ellipse cx="200" cy="290" rx="18" ry="5" transform="rotate(-22 200 290)"/>
+    <!-- atom -->
+    <ellipse cx="40" cy="300" rx="14" ry="5"/>
+    <ellipse cx="40" cy="300" rx="14" ry="5" transform="rotate(60 40 300)"/>
+    <ellipse cx="40" cy="300" rx="14" ry="5" transform="rotate(-60 40 300)"/>
+    <circle cx="40" cy="300" r="2"/>
+    <!-- plus -->
+    <path d="M330 260 l0 10 m-5 -5 l10 0"/>
+    <!-- plus 2 -->
+    <path d="M20 160 l0 8 m-4 -4 l8 0"/>
+    <!-- small dot -->
+    <circle cx="180" cy="80" r="1.5"/>
+    <!-- arrow -->
+    <path d="M120 130 q10 -8 22 -2 m-4 -6 l8 1 l-3 8"/>
+  </g>
+</svg>
