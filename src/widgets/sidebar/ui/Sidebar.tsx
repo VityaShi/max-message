@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import type { Chat } from 'shared/types/domain';
+import { CreateChatButton } from 'features/create-chat';
 import { lastTs } from '../lib/formatChatPreview';
 import { SidebarItem } from './SidebarItem';
 import { SidebarItemRemove } from './SidebarItemRemove';
-import { SidebarNewChat } from './SidebarNewChat';
 import styles from './Sidebar.module.css';
 
 export type SidebarProps = {
@@ -30,7 +30,7 @@ export function Sidebar({
     <aside className={styles.bar}>
       <div className={styles.header}>
         <h2 className={styles.headerTitle}>Чаты</h2>
-        <SidebarNewChat onNewChat={onNewChat} />
+        <CreateChatButton onClick={onNewChat} />
       </div>
       <div className={styles.list}>
         {sorted.length === 0 ? (
