@@ -1,4 +1,4 @@
-import { useMemo, useState, type FormEvent } from 'react'
+import { useMemo, useState } from 'react'
 import { buildPersonalChatId } from '../model/buildPersonalChatId'
 import styles from './ChatForm.module.css'
 
@@ -25,7 +25,7 @@ export function ChatForm({ onSubmit, onCancel }: ChatFormProps) {
 	}
 
 	return (
-		<form className={styles.wrap} onSubmit={e => handleSubmit} noValidate>
+		<form className={styles.wrap} onSubmit={handleSubmit} noValidate>
 			<h1 className={styles.title}>Новый чат</h1>
 			<p className={styles.subtitle}>Кому отправить сообщение?</p>
 
