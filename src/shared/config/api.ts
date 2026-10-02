@@ -1,0 +1,1 @@
+export const GREEN_API_BASE_URL = 'https://api.green-api.com/v3';

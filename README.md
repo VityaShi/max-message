@@ -23,9 +23,30 @@ npm run dev
 - `npm run lint` — oxlint
 - `npm run preview` — просмотр production-сборки
 
-## Архитектура
+## Архитектура (Feature-Sliced Design)
 
-- `src/api/greenApi.ts` — `fetch`-обёртки `sendMessage`, `receiveNotification`, `deleteNotification` (`waInstance{idInstance}/.../{apiTokenInstance}`).
-- `src/hooks/useChat.ts` — стейт сообщений, polling (3 с, экспоненциальный backoff до 30 с), оптимистичные апдейты, retry.
-- `src/components/*` — `AuthForm`, `ChatForm`, `ChatHeader`, `MessageList`, `MessageInput` (CSS Modules).
-- Сессия и сообщения хранятся только в памяти — перезагрузка вкладки стирает их (по требованию ТЗ «минимальный набор функций»).# max-message
+```
+src/
+  app/        композиция и провайдеры приложения (main.tsx, App.tsx, глобальные стили)
+  pages/      страничные композиции (ChatPage)
+  widgets/     самостоятельные UI-блоки (chat-header, chat-window, sidebar, toast)
+  features/   пользовательские сценарии (auth, create-chat, remove-chat)
+  entities/   бизнес-сущности (chat, message) — модель, UI, lib
+  shared/     переиспользуемые модули без бизнес-смысла (api, config, types, lib)
+```
+
+- **`shared/api/greenApi.ts`** — `fetch`-обёртки `sendMessage`, `receiveNotification`, `deleteNotification` (`waInstance{idInstance}/.../{apiTokenInstance}`).
+- **`entities/chat/model/useChats.ts`** — стейт чатов и сообщений, polling (3 с, экспоненциальный backoff до 30 с), оптимистичные апдейты, retry.
+- **`widgets/chat-window`** — `ChatHeader` + `MessageList` + `MessageInput` (композиция для активного чата).
+- **`widgets/sidebar`** — список чатов с превью последнего сообщения.
+- **`widgets/toast`** — индикатор состояния соединения (`reconnecting` / `offline`).
+
+Импорты между слоями идут только сверху вниз (pages → widgets → features → entities → shared); обратные запрещены.
+
+## Персистентность
+
+- **`max-chat:credentials`** — idInstance + apiTokenInstance (localStorage). Очищается кнопкой «Сбросить авторизацию» в пустом чате.
+- **`max-chat:chats`** — массив всех чатов с историей сообщений (localStorage).
+- **`max-chat:active`** — id активного чата (localStorage).
+
+Перезагрузка вкладки сохраняет и сессию, и переписку.
